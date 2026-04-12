@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles.css" rel="stylesheet">
+    <title>DevBites — Coding in 60 Seconds</title>
+</head>
+<body>
+    <nav class="nav">
+    <div class="container nav-inner">
+      <a href="#home" class="logo">Dev<span>Bites</span></a>
+      <div class="nav-links">
+        <a href="#lessons">Lessons</a>
+        <a href="#join">Join</a>
+        <a href="#about">About</a>
+      </div>
+    </div>
+  </nav>
+
+   <header class="hero" id="home">
+    <div class="container hero-grid">
+      <div>
+        <div class="tag">Coding for busy beginners</div>
+        <h1>Learn coding in small bites that actually make sense.</h1>
+        <p>
+          Real beginner mistakes. Real code. Real explanations. DevBites turns confusing Python and SQL moments into quick lessons you can understand in under a minute.
+        </p>
+        <div class="hero-actions">
+          <a href="#lessons" class="btn btn-primary">Start Free Lessons</a>
+          <a href="#join" class="btn btn-secondary">Get Future Lessons</a>
+        </div>
+        <a class="cta-inline" href="#join">Want the future beginner pack? Join the waitlist →</a>
+      </div>
+
+      <div class="hero-card">
+        <div class="mini-label">Sample lesson</div>
+        <h3 style="margin-bottom: 14px;">Why “10” is not equal to 10</h3>
+        <div class="code-demo">
+<pre><code>user_input = input("Enter a number: ")
+
+if user_input == 10:
+    print("Correct")
+else:
+    print("Wrong")</code></pre>
+        </div>
+        <p style="margin-top: 14px; color: var(--muted);">
+          <strong style="color: var(--text);">What happened?</strong> Input returns a string, not an integer. That means <code>"10"</code> and <code>10</code> are different types.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <section id="lessons">
+    <div class="container">
+      <h2 class="section-title">Free starter lessons</h2>
+      <p class="section-sub">
+        Click any lesson card below to open a more detailed breakdown. This makes the page feel more interactive and gives visitors a reason to stay longer.
+      </p>
+
+      <div class="grid">
+        <article class="card active" data-title="1. Why input() breaks your comparison" data-description="The input() function always returns text. So if you compare it directly to a number, the condition can fail or even throw an error depending on the operator you use." data-code="age = input(&quot;Enter age: &quot;)\n\nif age &gt;= 18:\n    print(&quot;Adult&quot;)" data-mistake="Forgetting to convert the input first with int()." data-fix="age = int(input(&quot;Enter age: &quot;))\n\nif age &gt;= 18:\n    print(&quot;Adult&quot;)" data-points="input() always returns a string.|Comparing string to int causes problems.|Converting early keeps the rest of your logic clean.">
+          <h3>1. Why <code>input()</code> breaks your comparison</h3>
+          <div class="lesson-meta">
+            <span class="pill">Python</span>
+            <span class="pill">Beginner bug</span>
+          </div>
+          <p class="lesson-text">
+            The <code>input()</code> function always returns text. So when you compare it directly to a number, your condition fails even if the user typed the correct value.
+          </p>
+          <div class="mistake">
+            <strong>Common mistake:</strong> Forgetting to convert the input first with <code>int()</code>.
+          </div>
+        </article>
+
+        <article class="card" data-title="2. Why your list keeps remembering values" data-description="Mutable default arguments can reuse the same list between function calls. It feels like Python is remembering old data because the same list object is reused." data-code="def add_item(item, my_list=[]):\n    my_list.append(item)\n    return my_list" data-mistake="Using a list as a default parameter instead of starting with None." data-fix="def add_item(item, my_list=None):\n    if my_list is None:\n        my_list = []\n    my_list.append(item)\n    return my_list" data-points="Default values are created once.|Lists are mutable, so changes stick around.|Use None for safer function defaults.">
+          <h3>2. Why your list keeps remembering values</h3>
+          <div class="lesson-meta">
+            <span class="pill">Python</span>
+            <span class="pill">Real-world confusion</span>
+          </div>
+          <p class="lesson-text">
+            Mutable default arguments can reuse the same list between function calls. It feels like Python is “remembering” old data because it kind of is.
+          </p>
+          <div class="mistake">
+            <strong>Common mistake:</strong> Using a list as a default parameter instead of starting with <code>None</code>.
+          </div>
+        </article>
+
+        <article class="card" data-title="3. Why “10” is not equal to 10" data-description="Values can look identical to us but still be different to Python because one is text and the other is a number." data-code="print(&quot;10&quot; == 10)   # False\nprint(int(&quot;10&quot;) == 10)   # True" data-mistake="Assuming what the user typed is automatically numeric." data-fix="user_input = int(input(&quot;Enter a number: &quot;))\nprint(user_input == 10)" data-points="Strings and integers are different types.|Same visual value does not mean same data type.|Type conversion is part of real input handling.">
+          <h3>3. Why “10” is not equal to 10</h3>
+          <div class="lesson-meta">
+            <span class="pill">Python</span>
+            <span class="pill">Type basics</span>
+          </div>
+          <p class="lesson-text">
+            Values can look the same but still be different because one is text and the other is a number. This is one of the most common beginner traps.
+          </p>
+          <div class="mistake">
+            <strong>Common mistake:</strong> Assuming what the user typed is automatically numeric.
+          </div>
+        </article>
+
+        <article class="card" data-title="4. The SQL mistake that can destroy data" data-description="Running an UPDATE or DELETE statement without a proper WHERE clause can affect every row in the table. This is one of those simple mistakes with massive consequences." data-code="DELETE FROM Customers\n-- WHERE CustomerID = 12" data-mistake="Highlighting only part of the query or forgetting to double-check the filter before running it." data-fix="SELECT * FROM Customers WHERE CustomerID = 12;\n\nDELETE FROM Customers\nWHERE CustomerID = 12;" data-points="Always preview rows with SELECT first.|Never rush DELETE or UPDATE statements.|One missing WHERE can affect the whole table.">
+          <h3>4. The SQL mistake that can destroy data</h3>
+          <div class="lesson-meta">
+            <span class="pill">SQL</span>
+            <span class="pill">Workplace scenario</span>
+          </div>
+          <p class="lesson-text">
+            Running an <code>UPDATE</code> or <code>DELETE</code> statement without a proper <code>WHERE</code> clause can affect every row in the table.
+          </p>
+          <div class="mistake">
+            <strong>Common mistake:</strong> Highlighting only part of the query or forgetting to double-check the filter before running it.
+          </div>
+        </article>
+      </div>
+
+      <div class="detail-box" id="lesson-detail">
+        <div class="detail-top">
+          <h3 id="detail-title">1. Why input() breaks your comparison</h3>
+          <span class="pill">Click other cards to switch</span>
+        </div>
+        <p class="detail-description" id="detail-description">
+          The input() function always returns text. So if you compare it directly to a number, the condition can fail or even throw an error depending on the operator you use.
+        </p>
+        <div class="code-demo">
+<pre><code id="detail-code">age = input("Enter age: ")
+
+if age >= 18:
+    print("Adult")</code></pre>
+        </div>
+        <div class="mistake" style="margin-top: 16px;">
+          <strong>Common mistake:</strong> <span id="detail-mistake">Forgetting to convert the input first with int().</span>
+        </div>
+        <h3 style="margin: 18px 0 10px; font-size: 1.1rem;">Better version</h3>
+        <div class="code-demo">
+<pre><code id="detail-fix">age = int(input("Enter age: "))
+
+if age >= 18:
+    print("Adult")</code></pre>
+        </div>
+        <ul class="detail-list" id="detail-points">
+          <li>input() always returns a string.</li>
+          <li>Comparing string to int causes problems.</li>
+          <li>Converting early keeps the rest of your logic clean.</li>
+        </ul>
+      </div>
+
+      <div class="cta-strip">
+        <div>
+          <h3 style="margin-bottom: 6px;">Want more beginner-friendly lessons like this?</h3>
+          <p>I’m building more quick coding breakdowns for busy people who want simple explanations.</p>
+        </div>
+        <a href="#join" class="btn btn-primary">Join the Waitlist</a>
+      </div>
+    </div>
+  </section>
+
+
+     <section id="join">
+    <div class="container">
+      <div class="email-box">
+        <h2 class="section-title">Join for future lessons</h2>
+        <p>
+          Later, this is where you can collect emails and sell your beginner pack, bug-fix guide, cheat sheets, or micro-course.
+        </p>
+        <form>
+          <input type="email" placeholder="Enter your email" />
+          <button class="btn btn-primary" type="submit">Notify Me</button>
+        </form>
+        <p style="font-size: 0.92rem;">
+          For now this is a front-end demo. Next upgrade: connect this to a real email tool and start collecting subscribers.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="container">
+      <h2 class="section-title">About DevBites</h2>
+      <p class="section-sub">
+        DevBites is for people who are busy, learning from scratch, and tired of overcomplicated tutorials. The goal is simple: make coding easier to understand through short, useful, real-world lessons.
+      </p>
+      <p>
+        This version is intentionally simple but stronger than the first one. It now has a clearer call to action, improved lesson structure, and interactive cards that make the site feel more alive.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-box">
+        <p class="footer-note">Built as a first passive-income style coding project. Next step: connect email capture, add more lessons, then launch a paid starter pack.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
