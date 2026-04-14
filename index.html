@@ -138,6 +138,31 @@ else:
     <strong>Common mistake:</strong> Using <code>== False</code> instead of <code>not in</code>.
   </div>
 </article>
+
+        <article class="card"
+  data-title="6. Why 'is' works for 256 but not 257"
+  data-description="This looks inconsistent — but it's actually about how Python handles memory and object identity."
+  data-code="a = 256\nb = 256\nprint(a is b)\n\nx = int(&quot;257&quot;)\ny = int(&quot;257&quot;)\nprint(x is y)"
+  data-mistake="Using 'is' to compare values instead of checking identity."
+  data-fix="a = 256\nb = 256\nprint(a == b)\n\nx = int(&quot;257&quot;)\ny = int(&quot;257&quot;)\nprint(x == y)"
+  data-points="'is' checks if both variables point to the same object.|Python caches small integers (usually -5 to 256).|Use '==' when comparing values, not 'is'.">
+
+  <h3>6. Why 'is' works for 256 but not 257</h3>
+
+  <div class="lesson-meta">
+    <span class="pill">Python</span>
+    <span class="pill">Hidden behavior</span>
+  </div>
+
+  <p class="lesson-text">
+    This looks inconsistent — but it's actually because Python reuses small integers in memory, so <code>is</code> behaves differently depending on the value.
+  </p>
+
+  <div class="mistake">
+    <strong>Common mistake:</strong> Using <code>is</code> to compare values instead of <code>==</code>.
+  </div>
+</article>
+        
     </div>
 
     <div class="detail-box" id="lesson-detail">
