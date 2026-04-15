@@ -162,6 +162,30 @@ else:
     <strong>Common mistake:</strong> Using <code>is</code> to compare values instead of <code>==</code>.
   </div>
 </article>
+
+        <article class="card"
+  data-title="7. Why modifying one list changes the other"
+  data-description="This looks like you're creating a copy — but both variables actually point to the same list in memory."
+  data-code="a = [1, 2, 3]\nb = a\n\nb.append(4)\n\nprint(a)"
+  data-mistake="Assuming that assigning a list to another variable creates a copy."
+  data-fix="a = [1, 2, 3]\nb = a.copy()\n\nb.append(4)\n\nprint(a)"
+  data-points="Lists are mutable objects.|Assignment copies the reference, not the value.|Use .copy() to create a separate list.">
+
+  <h3>7. Why modifying one list changes the other</h3>
+
+  <div class="lesson-meta">
+    <span class="pill">Python</span>
+    <span class="pill">Memory trap</span>
+  </div>
+
+  <p class="lesson-text">
+    It looks like <code>b</code> is a separate list — but it's actually pointing to the same object as <code>a</code>, so changes affect both.
+  </p>
+
+  <div class="mistake">
+    <strong>Common mistake:</strong> Thinking <code>b = a</code> creates a copy instead of a reference.
+  </div>
+</article>
         
     </div>
 
