@@ -211,6 +211,30 @@ else:
       
   </div>
 </article>
+        
+        <article class="card"
+  data-title="9. Why length stays 3 even after clearing the list"
+  data-description="You stored the length before modifying the list, so it doesn't change when the list is cleared."
+  data-code="data = [1, 2, 3]\n\nlength = len(data)\ndata.clear()\n\nprint(length)\nprint(data)"
+  data-mistake="Assuming variables automatically update when the original data changes."
+  data-fix="data = [1, 2, 3]\n\ndata.clear()\nlength = len(data)\n\nprint(length)\nprint(data)"
+  data-points="Variables store values, not live references to results.|len() is evaluated once when assigned.|Recalculate values after modifying data.">
+
+  <h3>9. Why length stays 3 even after clearing the list</h3>
+
+  <div class="lesson-meta">
+    <span class="pill">Python</span>
+    <span class="pill">State trap</span>
+  </div>
+
+  <p class="lesson-text">
+    The length is calculated before the list is cleared — so the variable keeps the old value even after the list changes.
+  </p>
+
+  <div class="mistake">
+    <strong>Common mistake:</strong> Thinking variables update automatically when the data changes.
+  </div>
+</article>
         </div>
 
     <div class="detail-box" id="lesson-detail">
