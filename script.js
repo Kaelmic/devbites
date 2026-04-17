@@ -26,6 +26,9 @@
           detailPoints.appendChild(li);
         }
       });
+      document.getElementById('lesson-detail').scrollIntoView({
+  behavior: 'smooth'
+});
     });
   });
 
