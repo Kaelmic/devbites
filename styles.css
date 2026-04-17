@@ -245,8 +245,9 @@
     }
 
     .card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-5px);
       border-color: rgba(56, 189, 248, 0.4);
+      background-color:#234350;
     }
 
     .card.active {
