@@ -185,7 +185,31 @@ else:
   <div class="mistake">
     <strong>Common mistake:</strong> Thinking <code>b = a</code> creates a copy instead of a reference.
   </div>
-</article>
+
+     <article class="card"
+  data-title="8. Why removing items in a loop breaks your list"
+  data-description="Removing items while looping through a list can skip elements and give unexpected results."
+  data-code="data = [1, 2, 3, 4]\n\nfor i in data:\n    if i % 2 == 0:\n        data.remove(i)\n\nprint(data)"
+  data-mistake="Modifying a list while iterating over it."
+  data-fix="data = [1, 2, 3, 4]\n\nfiltered = [i for i in data if i % 2 != 0]\n\nprint(filtered)"
+  data-points="Removing items shifts the list positions.|The loop skips elements after removal.|Use list comprehension or a copy instead.">
+
+  <h3>9. Why removing items in a loop breaks your list</h3>
+
+  <div class="lesson-meta">
+    <span class="pill">Python</span>
+    <span class="pill">Loop trap</span>
+  </div>
+
+  <p class="lesson-text">
+    Removing items while looping through a list can skip elements because the list shifts during iteration.
+  </p>
+
+  <div class="mistake">
+    <strong>Common mistake:</strong> Modifying a list while iterating over it.
+  </div>
+         
+</article>       
         
     </div>
 
