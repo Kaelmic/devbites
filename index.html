@@ -7,7 +7,7 @@
     <title>DevBites — Coding in 60 Seconds</title>
 </head>
 <body>
-    <nav class="nav">
+<nav class="nav">
   <div class="container nav-inner">
     <a href="#home" class="logo">Dev<span>Bites</span> by J. Cresco</a>
     <div class="nav-links">
@@ -58,8 +58,8 @@ else:
       Click any lesson card below to open a more detailed breakdown. This makes the page feel more interactive and gives visitors a reason to stay longer.
     </p>
 
-    <div class="grid">
-      <article class="card active" data-title="1. Why input() breaks your comparison" data-description="The input() function always returns text. So if you compare it directly to a number, the condition can fail or even throw an error depending on the operator you use." data-code="age = input(&quot;Enter age: &quot;)\n\nif age &gt;= 18:\n    print(&quot;Adult&quot;)" data-mistake="Forgetting to convert the input first with int()." data-fix="age = int(input(&quot;Enter age: &quot;))\n\nif age &gt;= 18:\n    print(&quot;Adult&quot;)" data-points="input() always returns a string.|Comparing string to int causes problems.|Converting early keeps the rest of your logic clean.">
+    <div class="grid" id="card-container">
+      <article class="card" data-title="1. Why input() breaks your comparison" data-description="The input() function always returns text. So if you compare it directly to a number, the condition can fail or even throw an error depending on the operator you use." data-code="age = input(&quot;Enter age: &quot;)\n\nif age &gt;= 18:\n    print(&quot;Adult&quot;)" data-mistake="Forgetting to convert the input first with int()." data-fix="age = int(input(&quot;Enter age: &quot;))\n\nif age &gt;= 18:\n    print(&quot;Adult&quot;)" data-points="input() always returns a string.|Comparing string to int causes problems.|Converting early keeps the rest of your logic clean.">
         <h3>1. Why <code>input()</code> breaks your comparison</h3>
         <div class="lesson-meta">
           <span class="pill">Python</span>
@@ -235,85 +235,115 @@ else:
     <strong>Common mistake:</strong> Thinking variables update automatically when the data changes.
   </div>
 </article>
+
+<article class="card"
+  data-title="10. Why += changes the original list"
+  data-description="Using += on a list modifies the same object instead of creating a new one, which can be confusing when multiple variables point to it."
+  data-code="a = [1, 2]\nb = a\n\na += [3]\n\nprint(b)"
+  data-mistake="Thinking += creates a brand new list every time."
+  data-fix="a = [1, 2]\nb = a.copy()\n\na += [3]\n\nprint(b)"
+  data-points="Lists are mutable.|+= changes the existing list object.|Copy first if you want separate lists.">
+
+  <h3>10. Why <code>+=</code> changes the original list</h3>
+
+  <div class="lesson-meta">
+    <span class="pill">Python</span>
+    <span class="pill">Mutation trap</span>
+  </div>
+
+  <p class="lesson-text">
+    It looks harmless, but <code>+=</code> can modify the same list in place — which means other variables pointing to it also see the change.
+  </p>
+
+  <div class="mistake">
+    <strong>Common mistake:</strong> Thinking <code>+=</code> always creates a brand new list.
+  </div>
+</article>
         </div>
 
-    <div class="detail-box" id="lesson-detail">
-      <div class="detail-top">
-        <h3 id="detail-title">1. Why input() breaks your comparison</h3>
-        <span class="pill">Click other cards to switch</span>
+<div class="pagination">
+  <button id="prev">Prev</button>
+  <span id="page-info"></span>
+  <button id="next">Next</button>
+</div>
+
+    <div class="detail-box glow-box" id="lesson-detail">
+  <div class="detail-top">
+    <h3 id="detail-title">1. Why input() breaks your comparison</h3>
+    <span class="pill">Click other cards to switch</span>
+  </div>
+
+  <p class="detail-description" id="detail-description">
+    The input() function always returns text. So if you compare it directly to a number, the condition can fail or even throw an error depending on the operator you use.
+  </p>
+
+  <div class="editor-code-box">
+    <div class="editor-topbar">
+      <div class="window-controls">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
       </div>
-
-      <p class="detail-description" id="detail-description">
-        The input() function always returns text. So if you compare it directly to a number, the condition can fail or even throw an error depending on the operator you use.
-      </p>
-
-      <div class="editor-code-box">
-        <div class="editor-topbar">
-          <div class="window-controls">
-            <span class="dot red"></span>
-            <span class="dot yellow"></span>
-            <span class="dot green"></span>
-          </div>
-          <div class="editor-title">example.py</div>
-        </div>
-
-        <div class="tab-bar">
-          <div class="tab active">example.py</div>
-        </div>
-
-        <div class="code-wrapper">
-          <button class="copy-btn" data-copy="detail-code">Copy</button>
-          <pre><code id="detail-code">age = input("Enter age: ")
-
-if age >= 18:
-    print("Adult")</code></pre>
-        </div>
-      </div>
-
-      <div class="mistake" style="margin-top: 16px;">
-        <strong>Common mistake:</strong> <span id="detail-mistake">Forgetting to convert the input first with int().</span>
-      </div>
-
-      <h3 style="margin: 18px 0 10px; font-size: 1.1rem;">Better version</h3>
-
-      <div class="editor-code-box">
-        <div class="editor-topbar">
-          <div class="window-controls">
-            <span class="dot red"></span>
-            <span class="dot yellow"></span>
-            <span class="dot green"></span>
-          </div>
-          <div class="editor-title">better_version.py</div>
-        </div>
-
-        <div class="tab-bar">
-          <div class="tab active">better_version.py</div>
-        </div>
-
-        <div class="code-wrapper">
-          <button class="copy-btn" data-copy="detail-fix">Copy</button>
-          <pre><code id="detail-fix">age = int(input("Enter age: "))
-
-if age >= 18:
-    print("Adult")</code></pre>
-        </div>
-      </div>
-
-      <ul class="detail-list" id="detail-points">
-        <li>input() always returns a string.</li>
-        <li>Comparing string to int causes problems.</li>
-        <li>Converting early keeps the rest of your logic clean.</li>
-      </ul>
+      <div class="editor-title">example.py</div>
     </div>
 
-    <div class="cta-strip">
-      <div>
-        <h3 style="margin-bottom: 6px;">Want more beginner-friendly lessons like this?</h3>
-        <p>I’m building more quick coding breakdowns for busy people who want simple explanations.</p>
-      </div>
-      <a href="#join" class="btn btn-primary">Join the Waitlist</a>
+    <div class="tab-bar">
+      <div class="tab active">example.py</div>
+    </div>
+
+    <div class="code-wrapper">
+      <button class="copy-btn" data-copy="detail-code">Copy</button>
+      <pre><code id="detail-code">age = input("Enter age: ")
+
+if age >= 18:
+    print("Adult")</code></pre>
     </div>
   </div>
+
+  <div class="mistake detail-mistake-box">
+    <strong>Common mistake:</strong>
+    <span id="detail-mistake">Forgetting to convert the input first with int().</span>
+  </div>
+
+  <h3 class="section-heading">Better version</h3>
+
+  <div class="editor-code-box">
+    <div class="editor-topbar">
+      <div class="window-controls">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+      </div>
+      <div class="editor-title">better_version.py</div>
+    </div>
+
+    <div class="tab-bar">
+      <div class="tab active">better_version.py</div>
+    </div>
+
+    <div class="code-wrapper">
+      <button class="copy-btn" data-copy="detail-fix">Copy</button>
+      <pre><code id="detail-fix">age = int(input("Enter age: "))
+
+if age >= 18:
+    print("Adult")</code></pre>
+    </div>
+  </div>
+
+  <ul class="detail-list" id="detail-points">
+    <li>input() always returns a string.</li>
+    <li>Comparing string to int causes problems.</li>
+    <li>Converting early keeps the rest of your logic clean.</li>
+  </ul>
+</div>
+
+<div class="cta-strip">
+  <div>
+    <h3 class="cta-heading">Want more beginner-friendly lessons like this?</h3>
+    <p>I’m building more quick coding breakdowns for busy people who want simple explanations.</p>
+  </div>
+  <a href="#join" class="btn btn-primary">Join the Waitlist</a>
+</div>
 </section>
 
 <section id="join">
@@ -331,7 +361,7 @@ if age >= 18:
 
 <section id="about" class="about">
   <div class="container">
-    <h2 class="section-title">About DevBites</h2>
+    <h2 class="section-title">About DevBites by J. Cresco</h2>
     <p class="section-sub">
       DevBites is for people who are busy, learning from scratch, and tired of overcomplicated tutorials. The goal is simple: make coding easier to understand through short, useful, real-world lessons.
     </p>
