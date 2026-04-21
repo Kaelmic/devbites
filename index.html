@@ -283,6 +283,30 @@ else:
     <strong>Common mistake:</strong> Thinking negative indexes are invalid or will cause an error.
   </div>
 </article>
+
+        <article class="card"
+  data-title="12. Why is Python ignoring my new line…?"
+  data-description="The end parameter in print() controls what gets added after the output. Changing it removes the default newline."
+  data-code="print(&quot;Loading&quot;, end=&quot;&quot;)\nprint(&quot;...&quot;)"
+  data-mistake="Not realizing that print() adds a newline by default."
+  data-fix="print(&quot;Loading&quot;)\nprint(&quot;...&quot;)\n\n# OR intentionally control it:\nprint(&quot;Loading&quot;, end=&quot; &quot;)\nprint(&quot;...&quot;)"
+  data-points="print() adds a newline by default.|end controls what comes after the output.|Using end=&quot;&quot; removes the newline.">
+
+  <h3>12. Why is this glued together?</h3>
+
+  <div class="lesson-meta">
+    <span class="pill">Python</span>
+    <span class="pill">Output</span>
+  </div>
+
+  <p class="lesson-text">
+    By default, <code>print()</code> moves to a new line. But changing the <code>end</code> parameter removes that behavior, so the next print continues on the same line.
+  </p>
+
+  <div class="mistake">
+    <strong>Common mistake:</strong> Not realizing that <code>print()</code> adds a newline by default.
+  </div>
+</article>
         </div>
 
 <div class="pagination">
