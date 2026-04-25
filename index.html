@@ -506,6 +506,30 @@
   </div>
 </article>
 
+        <article class="card"
+  data-title="- Why multiplying a list doesn’t double the numbers"
+  data-description="Using * on a list doesn’t multiply each value — it repeats the entire list."
+  data-code="nums = [1, 2, 3]\n\nresult = nums * 2\n\nprint(result)\nprint(len(result))"
+  data-mistake="Thinking list multiplication changes the values inside the list."
+  data-fix="nums = [1, 2, 3]\n\n# Double each value correctly\nresult = [x * 2 for x in nums]\n\nprint(result)"
+  data-points="* repeats the list, not the values.|Length increases because items are duplicated.|Use list comprehension to modify values.">
+
+  <h3>- Why multiplying a list doesn’t double the numbers</h3>
+
+  <div class="lesson-meta">
+    <span class="pill">Python</span>
+    <span class="pill">List behavior</span>
+  </div>
+
+  <p class="lesson-text">
+    When you use <code>*</code> on a list, Python repeats the entire list instead of multiplying each value.
+  </p>
+
+  <div class="mistake">
+    <strong>Common mistake:</strong> Thinking list multiplication changes the values inside the list.
+  </div>
+</article>
+        
 </div>
 
 <div class="pagination">
