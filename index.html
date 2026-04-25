@@ -33,21 +33,19 @@
       <a class="cta-inline" href="#join">Want the future beginner pack? Join the waitlist →</a>
     </div>
 
-    <div class="hero-card">
+    <div class="hero-card" id="hero-card">
       <div class="mini-label">Sample lesson</div>
-      <h3 style="margin-bottom: 14px;">Why “10” is not equal to 10</h3>
-      <div class="code-demo">
-<pre><code>user_input = input("Enter a number: ")
+    <div class="hero-inner" id="hero-inner">
+  
+  <h3 id="hero-title"></h3>
 
-if user_input == 10:
-    print("Correct")
-else:
-    print("Wrong")</code></pre>
-      </div>
-      <p style="margin-top: 14px; color: var(--muted);">
-        <strong style="color: var(--text);">What happened?</strong> Input returns a string, not an integer. That means <code>"10"</code> and <code>10</code> are different types.
-      </p>
-    </div>
+  <div class="code-demo">
+    <pre><code id="hero-code"></code></pre>
+  </div>
+
+  <p id="hero-desc" class="hero-desc"></p>
+</div>
+</div>
   </div>
 </header>
 
@@ -57,10 +55,18 @@ else:
     <p class="section-sub">
       Click any lesson card below to open a more detailed breakdown.
     </p>
+<div class="lesson-tabs">
+  <button class="tab-filter active-tab" data-filter="all">All</button>
+  <button class="tab-filter" data-filter="python">Python</button>
+  <button class="tab-filter" data-filter="sql">SQL</button>
+  <button class="tab-filter" data-filter="html">HTML</button>
+  <button class="tab-filter" data-filter="css">CSS</button>
+  <button class="tab-filter" data-filter="js">JS</button>
+</div>
 
     <div class="grid" id="card-container">
-      <article class="card" data-title="1. Why input() breaks your comparison" data-description="The input() function always returns text. So if you compare it directly to a number, the condition can fail or even throw an error depending on the operator you use." data-code="age = input(&quot;Enter age: &quot;)\n\nif age &gt;= 18:\n    print(&quot;Adult&quot;)" data-mistake="Forgetting to convert the input first with int()." data-fix="age = int(input(&quot;Enter age: &quot;))\n\nif age &gt;= 18:\n    print(&quot;Adult&quot;)" data-points="input() always returns a string.|Comparing string to int causes problems.|Converting early keeps the rest of your logic clean.">
-        <h3>1. Why <code>input()</code> breaks your comparison</h3>
+      <article class="card" data-category="python" data-title="- Why input() breaks your comparison" data-description="The input() function always returns text. So if you compare it directly to a number, the condition can fail or even throw an error depending on the operator you use." data-code="age = input(&quot;Enter age: &quot;)\n\nif age &gt;= 18:\n    print(&quot;Adult&quot;)" data-mistake="Forgetting to convert the input first with int()." data-fix="age = int(input(&quot;Enter age: &quot;))\n\nif age &gt;= 18:\n    print(&quot;Adult&quot;)" data-points="input() always returns a string.|Comparing string to int causes problems.|Converting early keeps the rest of your logic clean.">
+        <h3>- Why <code>input()</code> breaks your comparison</h3>
         <div class="lesson-meta">
           <span class="pill">Python</span>
           <span class="pill">Beginner bug</span>
@@ -73,8 +79,8 @@ else:
         </div>
       </article>
 
-      <article class="card" data-title="2. Why your list keeps remembering values" data-description="Mutable default arguments can reuse the same list between function calls. It feels like Python is remembering old data because the same list object is reused." data-code="def add_item(item, my_list=[]):\n    my_list.append(item)\n    return my_list" data-mistake="Using a list as a default parameter instead of starting with None." data-fix="def add_item(item, my_list=None):\n    if my_list is None:\n        my_list = []\n    my_list.append(item)\n    return my_list" data-points="Default values are created once.|Lists are mutable, so changes stick around.|Use None for safer function defaults.">
-        <h3>2. Why your list keeps remembering values</h3>
+      <article class="card" data-category="python" data-title="- Why your list keeps remembering values" data-description="Mutable default arguments can reuse the same list between function calls. It feels like Python is remembering old data because the same list object is reused." data-code="def add_item(item, my_list=[]):\n    my_list.append(item)\n    return my_list" data-mistake="Using a list as a default parameter instead of starting with None." data-fix="def add_item(item, my_list=None):\n    if my_list is None:\n        my_list = []\n    my_list.append(item)\n    return my_list" data-points="Default values are created once.|Lists are mutable, so changes stick around.|Use None for safer function defaults.">
+        <h3>- Why your list keeps remembering values</h3>
         <div class="lesson-meta">
           <span class="pill">Python</span>
           <span class="pill">Real-world confusion</span>
@@ -87,8 +93,8 @@ else:
         </div>
       </article>
 
-      <article class="card" data-title="3. Why “10” is not equal to 10" data-description="Values can look identical to us but still be different to Python because one is text and the other is a number." data-code="print(&quot;10&quot; == 10)   # False\nprint(int(&quot;10&quot;) == 10)   # True" data-mistake="Assuming what the user typed is automatically numeric." data-fix="user_input = int(input(&quot;Enter a number: &quot;))\nprint(user_input == 10)" data-points="Strings and integers are different types.|Same visual value does not mean same data type.|Type conversion is part of real input handling.">
-        <h3>3. Why “10” is not equal to 10</h3>
+      <article class="card" data-category="python" data-title="- Why “10” is not equal to 10" data-description="Values can look identical to us but still be different to Python because one is text and the other is a number." data-code="print(&quot;10&quot; == 10)   # False\nprint(int(&quot;10&quot;) == 10)   # True" data-mistake="Assuming what the user typed is automatically numeric." data-fix="user_input = int(input(&quot;Enter a number: &quot;))\nprint(user_input == 10)" data-points="Strings and integers are different types.|Same visual value does not mean same data type.|Type conversion is part of real input handling.">
+        <h3>- Why “10” is not equal to 10</h3>
         <div class="lesson-meta">
           <span class="pill">Python</span>
           <span class="pill">Type basics</span>
@@ -101,8 +107,8 @@ else:
         </div>
       </article>
 
-      <article class="card" data-title="4. The SQL mistake that can destroy data" data-description="Running an UPDATE or DELETE statement without a proper WHERE clause can affect every row in the table. This is one of those simple mistakes with massive consequences." data-code="DELETE FROM Customers\n-- WHERE CustomerID = 12" data-mistake="Highlighting only part of the query or forgetting to double-check the filter before running it." data-fix="SELECT * FROM Customers WHERE CustomerID = 12;\n\nDELETE FROM Customers\nWHERE CustomerID = 12;" data-points="Always preview rows with SELECT first.|Never rush DELETE or UPDATE statements.|One missing WHERE can affect the whole table.">
-        <h3>4. The SQL mistake that can destroy data</h3>
+      <article class="card" data-category="sql" data-title="- The SQL mistake that can destroy data" data-description="Running an UPDATE or DELETE statement without a proper WHERE clause can affect every row in the table. This is one of those simple mistakes with massive consequences." data-code="DELETE FROM Customers\n-- WHERE CustomerID = 12" data-mistake="Highlighting only part of the query or forgetting to double-check the filter before running it." data-fix="SELECT * FROM Customers WHERE CustomerID = 12;\n\nDELETE FROM Customers\nWHERE CustomerID = 12;" data-points="Always preview rows with SELECT first.|Never rush DELETE or UPDATE statements.|One missing WHERE can affect the whole table.">
+        <h3>- The SQL mistake that can destroy data</h3>
         <div class="lesson-meta">
           <span class="pill">SQL</span>
           <span class="pill">Workplace scenario</span>
@@ -115,15 +121,15 @@ else:
         </div>
       </article>
 
-      <article class="card"
-  data-title="5. Why this 'in' check looks wrong"
+      <article class="card" data-category="python"
+  data-title="- Why this 'in' check looks wrong"
   data-description="This looks like you're checking if 'banana' is not in the list. But Python evaluates this differently due to operator chaining."
   data-code="items = [&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;]\n\nprint(&quot;banana&quot; in items == False)"
   data-mistake="Assuming this checks if 'banana' is NOT in the list."
   data-fix="items = [&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;]\n\nprint(&quot;banana&quot; not in items)"
   data-points="Python chains comparisons automatically.|This is evaluated differently than expected.|Use 'not in' for clarity.">
 
-  <h3>5. Why this 'in' check looks wrong</h3>
+  <h3>- Why this 'in' check looks wrong</h3>
 
   <div class="lesson-meta">
     <span class="pill">Python</span>
@@ -139,15 +145,15 @@ else:
   </div>
 </article>
 
-        <article class="card"
-  data-title="6. Why 'is' works for 256 but not 257"
+        <article class="card" data-category="python"
+  data-title="- Why 'is' works for 256 but not 257"
   data-description="This looks inconsistent — but it's actually about how Python handles memory and object identity."
   data-code="a = 256\nb = 256\nprint(a is b)\n\nx = int(&quot;257&quot;)\ny = int(&quot;257&quot;)\nprint(x is y)"
   data-mistake="Using 'is' to compare values instead of checking identity."
   data-fix="a = 256\nb = 256\nprint(a == b)\n\nx = int(&quot;257&quot;)\ny = int(&quot;257&quot;)\nprint(x == y)"
   data-points="'is' checks if both variables point to the same object.|Python caches small integers (usually -5 to 256).|Use '==' when comparing values, not 'is'.">
 
-  <h3>6. Why 'is' works for 256 but not 257</h3>
+  <h3>- Why 'is' works for 256 but not 257</h3>
 
   <div class="lesson-meta">
     <span class="pill">Python</span>
@@ -163,15 +169,15 @@ else:
   </div>
 </article>
 
-        <article class="card"
-  data-title="7. Why modifying one list changes the other"
+        <article class="card" data-category="python"
+  data-title="- Why modifying one list changes the other"
   data-description="This looks like you're creating a copy — but both variables actually point to the same list in memory."
   data-code="a = [1, 2, 3]\nb = a\n\nb.append(4)\n\nprint(a)"
   data-mistake="Assuming that assigning a list to another variable creates a copy."
   data-fix="a = [1, 2, 3]\nb = a.copy()\n\nb.append(4)\n\nprint(a)"
   data-points="Lists are mutable objects.|Assignment copies the reference, not the value.|Use .copy() to create a separate list.">
 
-  <h3>7. Why modifying one list changes the other</h3>
+  <h3>- Why modifying one list changes the other</h3>
 
   <div class="lesson-meta">
     <span class="pill">Python</span>
@@ -187,15 +193,15 @@ else:
   </div>
 </article>  
 
-     <article class="card"
-  data-title="8. Why removing items in a loop breaks your list"
+     <article class="card" data-category="python"
+  data-title="- Why removing items in a loop breaks your list"
   data-description="Removing items while looping through a list can skip elements and give unexpected results."
   data-code="data = [1, 2, 3, 4]\n\nfor i in data:\n    if i % 2 == 0:\n        data.remove(i)\n\nprint(data)"
   data-mistake="Modifying a list while iterating over it."
   data-fix="data = [1, 2, 3, 4]\n\nfiltered = [i for i in data if i % 2 != 0]\n\nprint(filtered)"
   data-points="Removing items shifts the list positions.|The loop skips elements after removal.|Use list comprehension or a copy instead.">
 
-  <h3>8. Why removing items in a loop breaks your list</h3>
+  <h3>- Why removing items in a loop breaks your list</h3>
 
   <div class="lesson-meta">
     <span class="pill">Python</span>
@@ -212,15 +218,15 @@ else:
   </div>
 </article>
         
-        <article class="card"
-  data-title="9. Why length stays 3 even after clearing the list"
+        <article class="card" data-category="python"
+  data-title="- Why length stays 3 even after clearing the list"
   data-description="You stored the length before modifying the list, so it doesn't change when the list is cleared."
   data-code="data = [1, 2, 3]\n\nlength = len(data)\ndata.clear()\n\nprint(length)\nprint(data)"
   data-mistake="Assuming variables automatically update when the original data changes."
   data-fix="data = [1, 2, 3]\n\ndata.clear()\nlength = len(data)\n\nprint(length)\nprint(data)"
   data-points="Variables store values, not live references to results.|len() is evaluated once when assigned.|Recalculate values after modifying data.">
 
-  <h3>9. Why length stays 3 even after clearing the list</h3>
+  <h3>- Why length stays 3 even after clearing the list</h3>
 
   <div class="lesson-meta">
     <span class="pill">Python</span>
@@ -236,15 +242,15 @@ else:
   </div>
 </article>
 
-<article class="card"
-  data-title="10. Why += changes the original list"
+<article class="card" data-category="python"
+  data-title="- Why += changes the original list"
   data-description="Using += on a list modifies the same object instead of creating a new one, which can be confusing when multiple variables point to it."
   data-code="a = [1, 2]\nb = a\n\na += [3]\n\nprint(b)"
   data-mistake="Thinking += creates a brand new list every time."
   data-fix="a = [1, 2]\nb = a.copy()\n\na += [3]\n\nprint(b)"
   data-points="Lists are mutable.|+= changes the existing list object.|Copy first if you want separate lists.">
 
-  <h3>10. Why <code>+=</code> changes the original list</h3>
+  <h3>- Why <code>+=</code> changes the original list</h3>
 
   <div class="lesson-meta">
     <span class="pill">Python</span>
@@ -260,15 +266,15 @@ else:
   </div>
 </article>
 
-        <article class="card"
-  data-title="11. Why negative indexing works backwards"
+        <article class="card" data-category="python"
+  data-title="- Why negative indexing works backwards"
   data-description="Python allows you to access list elements from the end using negative numbers. This can be confusing if you're only used to starting from index 0."
   data-code="data = [1, 2, 3, 4]\n\nprint(data[-1])\nprint(data[-2])"
   data-mistake="Thinking negative indexes are invalid or will cause an error."
   data-fix="data = [1, 2, 3, 4]\n\n# Last item\nprint(data[-1])\n\n# Second to last item\nprint(data[-2])"
   data-points="Index -1 means last item.|Index -2 means second to last.|Negative indexing works from the end of the list.">
 
-  <h3>11. Why negative indexing works backwards</h3>
+  <h3>- Why negative indexing works backwards</h3>
 
   <div class="lesson-meta">
     <span class="pill">Python</span>
@@ -284,15 +290,15 @@ else:
   </div>
 </article>
 
-        <article class="card"
-  data-title="12. Why is Python ignoring my new line…?"
+        <article class="card" data-category="python"
+  data-title="- Why is Python ignoring my new line…?"
   data-description="The end parameter in print() controls what gets added after the output. Changing it removes the default newline."
   data-code="print(&quot;Loading&quot;, end=&quot;&quot;)\nprint(&quot;...&quot;)"
   data-mistake="Not realizing that print() adds a newline by default."
   data-fix="print(&quot;Loading&quot;)\nprint(&quot;...&quot;)\n\n# OR intentionally control it:\nprint(&quot;Loading&quot;, end=&quot; &quot;)\nprint(&quot;...&quot;)"
   data-points="print() adds a newline by default.|end controls what comes after the output.|Using end=&quot;&quot; removes the newline.">
 
-  <h3>12. Why is this glued together?</h3>
+  <h3>- Why is this glued together?</h3>
 
   <div class="lesson-meta">
     <span class="pill">Python</span>
@@ -307,17 +313,210 @@ else:
     <strong>Common mistake:</strong> Not realizing that <code>print()</code> adds a newline by default.
   </div>
 </article>
-        </div>
+
+<article class="card" data-category="python"
+  data-title="- Why this always prints the same number"
+  data-description="The variable inside the loop gets overwritten each time, so only the last value remains."
+  data-code="for i in range(5):\n    num = i\n\nprint(num)"
+  data-mistake="Thinking the loop stores all values instead of overwriting the variable."
+  data-fix="nums = []\n\nfor i in range(5):\n    nums.append(i)\n\nprint(nums)"
+  data-points="Variables get overwritten in loops.|Only the last value remains after loop ends.|Use a list if you want to store multiple values.">
+
+  <h3>- Why this always prints the same number</h3>
+
+  <div class="lesson-meta">
+    <span class="pill">Python</span>
+    <span class="pill">Loop logic</span>
+  </div>
+
+  <p class="lesson-text">
+    Each loop iteration replaces the variable — so after the loop finishes, only the last value is left.
+  </p>
+
+  <div class="mistake">
+    <strong>Common mistake:</strong> Expecting the loop to remember all values automatically.
+  </div>
+</article>
+
+<article class="card" data-category="python"
+  data-title="- Why this condition is always true"
+  data-description="This looks like you're checking multiple values, but Python evaluates it differently than expected."
+  data-code="x = 5\n\nif x == 1 or 2:\n    print(&quot;Yes&quot;)"
+  data-mistake="Thinking this checks if x equals 1 OR 2."
+  data-fix="x = 5\n\nif x == 1 or x == 2:\n    print(&quot;Yes&quot;)\n\n# OR better\nif x in [1, 2]:\n    print(&quot;Yes&quot;)"
+  data-points="Python evaluates 'or' differently than expected.|'2' alone is always truthy.|Use proper comparisons or 'in' for cleaner logic.">
+
+  <h3>- Why this condition is always true</h3>
+
+  <div class="lesson-meta">
+    <span class="pill">Python</span>
+    <span class="pill">Logic trap</span>
+  </div>
+
+  <p class="lesson-text">
+    This condition looks correct — but it always evaluates to true because of how Python handles <code>or</code>.
+  </p>
+
+  <div class="mistake">
+    <strong>Common mistake:</strong> Writing shorthand conditions incorrectly.
+  </div>
+</article>
+
+<article class="card" data-category="python"
+  data-title="- Why this list keeps growing unexpectedly"
+  data-description="The list is being reused instead of recreated, causing it to keep adding values across runs."
+  data-code="data = []\n\nfor i in range(3):\n    data.append(i)\n\nprint(data)"
+  data-mistake="Expecting the list to reset automatically between runs."
+  data-fix="data = []\n\nfor i in range(3):\n    data.append(i)\n\nprint(data)\n\n# Reset when needed\ndata.clear()"
+  data-points="Lists keep their values unless cleared.|Data persists within the same execution.|Reset manually when needed.">
+
+  <h3>- Why this list keeps growing unexpectedly</h3>
+
+  <div class="lesson-meta">
+    <span class="pill">Python</span>
+    <span class="pill">State</span>
+  </div>
+
+  <p class="lesson-text">
+    Lists don’t reset on their own — if you reuse them, they keep accumulating values.
+  </p>
+
+  <div class="mistake">
+    <strong>Common mistake:</strong> Assuming lists reset automatically.
+  </div>
+</article>
+
+<article class="card" data-category="sql"
+  data-title="- Why NULL never equals anything"
+  data-description="NULL represents missing data, so comparing it with = doesn’t work the way you expect."
+  data-code="SELECT *\nFROM Users\nWHERE middle_name = NULL;"
+  data-mistake="Using = NULL instead of IS NULL."
+  data-fix="SELECT *\nFROM Users\nWHERE middle_name IS NULL;"
+  data-points="NULL is not a value.|Comparisons with NULL return unknown.|Use IS NULL or IS NOT NULL.">
+
+  <h3>- Why NULL never equals anything</h3>
+
+  <div class="lesson-meta">
+    <span class="pill">SQL</span>
+    <span class="pill">Beginner trap</span>
+  </div>
+
+  <p class="lesson-text">
+    NULL doesn’t behave like normal values — using <code>=</code> won’t match anything.
+  </p>
+
+  <div class="mistake">
+    <strong>Common mistake:</strong> Using <code>= NULL</code> instead of <code>IS NULL</code>.
+  </div>
+</article>
+
+<article class="card" data-category="html"
+  data-title="- Why your button refreshes the page"
+  data-description="Buttons inside forms submit by default, causing page reloads."
+  data-code="<form>\n  <button>Click me</button>\n</form>"
+  data-mistake="Forgetting that button defaults to type='submit'."
+  data-fix="<form>\n  <button type=\"button\">Click me</button>\n</form>"
+  data-points="Buttons default to submit.|Forms reload the page on submit.|Use type='button' for JS actions.">
+
+  <h3>- Why your button refreshes the page</h3>
+
+  <div class="lesson-meta">
+    <span class="pill">HTML</span>
+    <span class="pill">Form behavior</span>
+  </div>
+
+  <p class="lesson-text">
+    By default, buttons inside forms submit — which refreshes your page unexpectedly.
+  </p>
+
+  <div class="mistake">
+    <strong>Common mistake:</strong> Not setting <code>type="button"</code>.
+  </div>
+</article>
+
+<article class="card" data-category="css"
+  data-title="- Why margin doesn't move your element"
+  data-description="Inline elements ignore vertical margins, so top/bottom spacing won’t apply."
+  data-code="span {\n  margin-top: 20px;\n}"
+  data-mistake="Trying to apply margin to inline elements."
+  data-fix="span {\n  display: inline-block;\n  margin-top: 20px;\n}"
+  data-points="Inline elements ignore vertical margin.|Use inline-block or block.|Display affects layout behavior.">
+
+  <h3>- Why margin doesn't move your element</h3>
+
+  <div class="lesson-meta">
+    <span class="pill">CSS</span>
+    <span class="pill">Layout</span>
+  </div>
+
+  <p class="lesson-text">
+    Some elements ignore margin depending on their display type — which makes spacing confusing.
+  </p>
+
+  <div class="mistake">
+    <strong>Common mistake:</strong> Using margin on inline elements.
+  </div>
+</article>
+
+<article class="card" data-category="js"
+  data-title="- Why 0 == false is true"
+  data-description="JavaScript does type coercion when using ==, which can lead to unexpected results."
+  data-code="console.log(0 == false)   // true\nconsole.log(0 === false)  // false"
+  data-mistake="Using == when strict comparison is needed."
+  data-fix="console.log(0 === false)"
+  data-points="== converts types automatically.|=== checks value AND type.|Always prefer ===.">
+
+  <h3>- Why 0 == false is true</h3>
+
+  <div class="lesson-meta">
+    <span class="pill">JS</span>
+    <span class="pill">Type coercion</span>
+  </div>
+
+  <p class="lesson-text">
+    JavaScript tries to be helpful by converting types — but it often causes confusion instead.
+  </p>
+
+  <div class="mistake">
+    <strong>Common mistake:</strong> Using <code>==</code> instead of <code>===</code>.
+  </div>
+</article>
+
+<article class="card" data-category="js"
+  data-title="- Why undefined and null are not the same"
+  data-description="Both represent 'no value', but they are different types in JavaScript."
+  data-code="let a;\nlet b = null;\n\nconsole.log(a == b)   // true\nconsole.log(a === b)  // false"
+  data-mistake="Assuming undefined and null are identical."
+  data-fix="Use strict checks or handle them separately."
+  data-points="undefined = not assigned.|null = intentionally empty.|They are different types.">
+
+  <h3>- Why undefined and null are not the same</h3>
+
+  <div class="lesson-meta">
+    <span class="pill">JS</span>
+    <span class="pill">Core concept</span>
+  </div>
+
+  <p class="lesson-text">
+    They look similar, but they represent different things — and behave differently in comparisons.
+  </p>
+
+  <div class="mistake">
+    <strong>Common mistake:</strong> Treating them as the same value.
+  </div>
+</article>
+
+</div>
 
 <div class="pagination">
   <button id="prev">Prev</button>
-  <span id="page-info"></span>
+  <div id="page-numbers"></div>
   <button id="next">Next</button>
 </div>
 
     <div class="detail-box glow-box" id="lesson-detail">
   <div class="detail-top">
-    <h3 id="detail-title">1. Why input() breaks your comparison</h3>
+    <h3 id="detail-title">- Why input() breaks your comparison</h3>
     <span class="pill">Click other cards to switch</span>
   </div>
 
@@ -385,24 +584,25 @@ if age >= 18:
   </ul>
 </div>
 
-<div class="cta-strip">
-  <div>
-    <h3 class="cta-heading">Want more beginner-friendly lessons like this?</h3>
-    <p>I’m building more quick coding breakdowns for busy people who want simple explanations.</p>
-  </div>
-  <a href="#join" class="btn btn-primary">Join the Waitlist</a>
 </div>
 </section>
 
 <section id="join">
   <div class="container">
-    <div class="email-box">
-      <h2 class="section-title">Join for future lessons</h2>
+    <div class="cta-join-box">
+      
+      <h2 class="section-title">Get simple coding lessons like this, straight to your inbox</h2>
+      
+      <p class="cta-sub">
+        I’m building quick coding breakdowns for busy people who want simple, practical explanations.
+      </p>
+
       <form action="https://formspree.io/f/xqewzlkz" method="POST">
-  <input type="email" name="email" placeholder="Enter your email" required>
-  <input type="hidden" name="_next" value="https://kaelmic.github.io/devbites/thank-you.html">
-  <button class="btn btn-primary" type="submit">Notify Me</button>
-</form>
+        <input type="email" name="email" placeholder="Enter your email" required>
+        <input type="hidden" name="_next" value="https://kaelmic.github.io/devbites/thank-you.html">
+        <button class="btn btn-primary" type="submit">Join the Waitlist</button>
+      </form>
+
     </div>
   </div>
 </section>
