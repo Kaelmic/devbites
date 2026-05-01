@@ -181,27 +181,6 @@ function updateHeroLesson() {
     currentPage = newPage;
     showPage(currentPage);
 
-    function renderPageNumbers(totalPages) {
-  if (!pageNumbers) return;
-
-  pageNumbers.innerHTML = '';
-
-  for (let i = 1; i <= totalPages; i++) {
-    const pageBtn = document.createElement('button');
-    pageBtn.textContent = i;
-
-    if (i === currentPage) {
-      pageBtn.classList.add('active-page');
-    }
-
-    pageBtn.addEventListener('click', () => {
-      changePage(i);
-    });
-
-    pageNumbers.appendChild(pageBtn);
-  }
-}
-
     const nav = document.querySelector('.nav');
 
     if (lessonsSection) {
@@ -219,7 +198,26 @@ function updateHeroLesson() {
       });
     }
   }
+  function renderPageNumbers(totalPages) {
+    if (!pageNumbers) return;
 
+    pageNumbers.innerHTML = '';
+
+    for (let i = 1; i <= totalPages; i++) {
+      const pageBtn = document.createElement('button');
+      pageBtn.textContent = i;
+
+      if (i === currentPage) {
+        pageBtn.classList.add('active-page');
+      }
+
+      pageBtn.addEventListener('click', () => {
+        changePage(i);
+      });
+
+      pageNumbers.appendChild(pageBtn);
+    }
+  }
   if (prevBtn) {
     prevBtn.addEventListener('click', () => {
       changePage(currentPage - 1);
