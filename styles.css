@@ -275,13 +275,13 @@
     }
 
     .card {
-      padding: 22px;
-      transition: transform 0.2s ease, border-color 0.2s ease;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-    }
+  padding: 22px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 
     .card:hover {
       transform: translateY(-5px);
@@ -294,20 +294,20 @@
     }
 
     .card h3 {
-      font-size: 1.25rem;
+  font-size: 1.25rem;
   margin: 0 0 8px;
-  min-height: 64px;
+  min-height: 58px;
   line-height: 1.35;
-    }
+}
 
     .lesson-meta {
-      display: flex;
+  display: flex;
   gap: 8px;
   flex-wrap: wrap;
   align-items: center;
   margin: 0 0 12px;
   min-height: 34px;
-    }
+}
 
     .pill {
       display: inline-block;
@@ -319,20 +319,19 @@
     }
 
     .lesson-text {
-      color: var(--muted);
-      margin: 0 0 12px;
-  min-height: 96px;
-  line-height: 1.6;
-    }
+  color: var(--muted);
+  margin: 0 0 12px;
+  min-height: 76px;
+  line-height: 1.5;
+}   
 
     .mistake {
-      margin-top: auto;
+  margin-top: auto;
   padding: 12px 14px;
   border-left: 4px solid var(--danger);
   background: rgba(251, 113, 133, 0.08);
   border-radius: 10px;
-  min-height: 78px;
-    }
+}
 
     .mistake strong {
       color: #fecdd3;
