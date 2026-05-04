@@ -19,6 +19,143 @@
   const tabButtons = document.querySelectorAll('.tab-filter');
   let activeFilter = 'all';
 
+const showHintsBtn = document.getElementById("show-hints-btn");
+const hintsList = document.getElementById("project-hints");
+
+showHintsBtn.addEventListener("click", () => {
+  hintsList.classList.toggle("hidden");
+
+  showHintsBtn.textContent =
+    hintsList.classList.contains("hidden")
+      ? "Show Hints"
+      : "Hide Hints";
+});
+
+const showCodeBtn = document.getElementById("show-code-btn");
+const codeBlock = document.getElementById("code-block");
+
+showCodeBtn.addEventListener("click", () => {
+  codeBlock.classList.toggle("hidden");
+
+  showCodeBtn.textContent =
+    codeBlock.classList.contains("hidden")
+      ? "Reveal Solution"
+      : "Hide Solution";
+});
+
+  const projects = {
+  tip: {
+    title: "💸 Tip Splitter",
+    description: "Split a bill between people with optional tip.",
+
+    challenge: "Build a program that asks for bill amount, number of people, and tip %, then calculates how much each person should pay.",
+
+    hints: [
+      "You need to convert input into numbers",
+      "Tip is a percentage → divide by 100",
+      "Add tip to the total before splitting",
+      "Divide total by number of people"
+    ],
+
+    code: `bill = float(input("Bill: "))
+people = int(input("People: "))
+tip = int(input("Tip %: "))
+
+total = bill + (bill * tip / 100)
+each = total / people
+
+print(f"Each person pays: {round(each, 2)}")`
+  },
+
+  password: {
+    title: "🔐 Password Generator",
+    description: "Create a simple random password using letters and numbers.",
+
+    challenge: "Build a program that asks for password length, then generates a random password using letters and numbers.",
+
+    hints: [
+      "Use the random module",
+      "Create a string of allowed characters",
+      "Use a loop to pick random characters",
+      "Add each character to the password",
+      "Print the final password"
+    ],
+
+    code: `import random
+
+characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+
+length = int(input("Password length: "))
+
+password = ""
+
+for i in range(length):
+    password += random.choice(characters)
+
+print("Your password:", password)`
+  },
+
+  "secure-password": {
+    title: "🛡️ Secure Password Generator",
+    description: "Create a stronger password using secrets and symbols.",
+
+    challenge: "Build a more secure password generator that uses letters, numbers, and symbols with cryptographically stronger randomness.",
+
+    hints: [
+      "Use the secrets module instead of random",
+      "Include letters, numbers, and symbols",
+      "Ask the user for password length",
+      "Use secrets.choice() to pick each character",
+      "Join all characters into one final password"
+    ],
+
+    code: `import secrets
+import string
+
+letters = string.ascii_letters
+numbers = string.digits
+symbols = string.punctuation
+
+characters = letters + numbers + symbols
+
+length = int(input("Password length: "))
+
+password = ""
+
+for i in range(length):
+    password += secrets.choice(characters)
+
+print("Your secure password:", password)`
+  }
+};
+
+window.openProject = function (id) {
+  const project = projects[id];
+  if (!project) return;
+
+  document.getElementById("project-title").textContent = project.title;
+  document.getElementById("project-description").textContent = project.description;
+  document.getElementById("project-challenge").textContent = project.challenge;
+  document.getElementById("project-code").textContent = project.code;
+  document.querySelector('.code-header span').textContent =
+  project.title.toLowerCase().replace(/ /g, "_") + ".py";
+
+  const hintsList = document.getElementById("project-hints");
+  hintsList.innerHTML = "";
+
+  project.hints.forEach(hint => {
+    const li = document.createElement("li");
+    li.textContent = hint;
+    hintsList.appendChild(li);
+  });
+
+  document.getElementById("project-viewer").classList.remove("hidden");
+
+  // reset states
+  hintsList.classList.add("hidden");
+  document.getElementById("code-block").classList.add("hidden");
+};
+
  const heroLessons = [
   {
     title: 'Why "10" is not equal to 10',
@@ -237,28 +374,31 @@ function updateHeroLesson() {
   });
 
   copyButtons.forEach((button) => {
-    button.addEventListener('click', async () => {
-      const targetId = button.dataset.copy || button.dataset.copyTarget;
-      const target = document.getElementById(targetId);
+    document.addEventListener('click', async (e) => {
+  if (!e.target.classList.contains('copy-btn')) return;
 
-      if (!target) return;
+  const targetId = e.target.dataset.copy || e.target.dataset.copyTarget;
+  const target = document.getElementById(targetId);
 
-      try {
-        await navigator.clipboard.writeText(target.textContent);
-        const originalText = button.textContent;
-        button.textContent = 'Copied!';
+  if (!target) return;
 
-        setTimeout(() => {
-          button.textContent = originalText;
-        }, 1200);
-      } catch (error) {
-        button.textContent = 'Failed';
+  try {
+    await navigator.clipboard.writeText(target.textContent);
 
-        setTimeout(() => {
-          button.textContent = 'Copy';
-        }, 1200);
-      }
-    });
+    const originalText = e.target.textContent;
+    e.target.textContent = 'Copied!';
+
+    setTimeout(() => {
+      e.target.textContent = originalText;
+    }, 1200);
+  } catch (error) {
+    e.target.textContent = 'Failed';
+
+    setTimeout(() => {
+      e.target.textContent = 'Copy';
+    }, 1200);
+  }
+});
   });
 
   tabButtons.forEach((button) => {
