@@ -12,6 +12,7 @@
     <a href="#home" class="logo">Dev<span>Bites</span> by J. Cresco</a>
     <div class="nav-links">
       <a href="#lessons">Lessons</a>
+      <a href="#projects">Projects</a>
       <a href="#join">Join</a>
       <a href="#about">About</a>
     </div>
@@ -586,6 +587,57 @@ if age >= 18:
 
 </div>
 </section>
+
+<section id="projects" class="projects">
+  <div class="container">
+    <h2>Beginner Projects</h2>
+    <p>Build real things with simple code.</p>
+
+    <div class="project-grid">
+
+      <div class="project-card">
+        <h3>💸 Tip Splitter</h3>
+        <p>Split bills between people with optional tax & discount.</p>
+        <button onclick="openProject('tip')">View Project</button>
+      </div>
+
+      <div class="project-card">
+        <h3>🔐 Password Generator</h3>
+        <p>Generate random passwords using letters and numbers.</p>
+        <button onclick="openProject('password')">View Project</button>
+      </div>
+
+      <div class="project-card">
+        <h3>🛡️ Secure Password Generator</h3>
+        <p>Uses stronger randomness and symbols for better security.</p>
+        <button onclick="openProject('secure-password')">View Project</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div id="project-viewer" class="project-viewer hidden">
+  <h2 id="project-title"></h2>
+  <p id="project-description"></p>
+
+  <h4>🎯 Challenge:</h4>
+  <p id="project-challenge"></p>
+
+  <button id="show-hints-btn">Show Hints</button>
+  <ul id="project-hints" class="hidden"></ul>
+
+  <button id="show-code-btn">Reveal Solution</button>
+
+  <!-- 🔥 SAME STYLE AS CARDS -->
+  <div id="code-block" class="hidden code-container">
+    <div class="code-header">
+      <span>solution.py</span>
+      <button class="copy-btn" data-copy-target="project-code">Copy</button>
+    </div>
+    <pre><code id="project-code"></code></pre>
+  </div>
+</div>
 
 <section id="join">
   <div class="container">
